@@ -107,22 +107,20 @@ def update_prices():
     if not os.path.exists(CSV_PATH):
         with open(CSV_PATH, "w", newline="") as fp:
             col_names = [
-                    timestamp,
-                    tile_id,
-                    item_id,
-                    name,
-                    url,
-                    color,
-                    on_sale,
-                    regular_price,
-                    current_price,
+                    "timestamp",
+                    "tile_id",
+                    "item_id",
+                    "name",
+                    "url",
+                    "color",
+                    "on_sale",
+                    "regular_price",
+                    "current_price",
                     ]
-            csv.writer(fp).writerows(col_names)
+            csv.writer(fp).writerow(col_names)
 
-
-    with open(CSV_PATH, "wa", newline="") as fp:
+    with open(CSV_PATH, "a", newline="") as fp:
         csv.writer(fp).writerows(shoes)
-
 
 
 if __name__ == "__main__":
